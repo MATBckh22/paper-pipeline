@@ -17,6 +17,11 @@ often untracked by git until submission and the log is its only history.
   section order, where Figure 1 sits, how captions are shaped, how
   contributions are phrased, and how limitations are admitted. Run
   `--phrasing` for the verbs and figure-reference forms the genre uses.
+- Record the findings in a copy of `templates/genre-study.md`. Its last two
+  sections are the ones that matter: what you will copy, which becomes
+  candidate rules in your style spec, and what you will not, which marks the
+  boundary between convention that serves the reader and convention that is
+  merely habit. `examples/genre-study-robotics.md` is a filled-in study.
 - Look at your own figures before writing captions.
 
 ## 2. Plan
@@ -26,6 +31,7 @@ often untracked by git until submission and the log is its only history.
   justifications, a figure inventory with the claim each figure carries, and
   a per-section contract: inputs, the belief the reader holds afterwards, and
   the rhetorical stance the evidence licenses.
+  Start from `templates/frame.md` and `templates/outline.md`.
 - Validate: `skills/paper-pipeline/scripts/validate_config.py config.yaml --frame frame.md`.
 - If you have papers you admire, run `exemplar-spec` once to turn quoted
   passages into traceable style rules.
@@ -51,14 +57,17 @@ often untracked by git until submission and the log is its only history.
    balance, bibliography order, unsorted multi-citations.
 
 Then `tex_integrity.py new.tex --diff-numbers old.tex` to prove that a prose
-pass changed no statistic. Record the outcome in the log.
+pass changed no statistic. Record the outcome in a copy of
+`templates/precedence-log.md`, which also holds every guidance conflict you
+resolved while drafting.
 
 ## 5. Review
 
 - `review-response` runs an adversarial panel in fresh context, ranks attacks
   by severity times likelihood, and requires a typed response to each: accept,
   defend with evidence, or retreat the claim. Fixes route back through stage 3
-  and the gate.
+  and the gate. Record each round in a copy of `templates/review-ledger.md`;
+  the ledger is what the termination test reads.
 - `mock-review` gives a single reviewer-style read when a full round is too
   much.
 

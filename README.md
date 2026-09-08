@@ -31,13 +31,19 @@ tools/
   lint_prose.py          anti-AI and style lint for .tex
   tex_integrity.py       refs, figures, braces, bibliography order, numeric diff
   run_gate.sh            the three checks in one command
+templates/               blank forms to copy into your paper folder
+  genre-study.md         what the papers in your venue do, and what you will copy
+  frame.md               gap statement, delimitations, figure inventory
+  outline.md             per-section contracts and stance levels
+  precedence-log.md      guidance conflicts and gate runs, append-only
+  review-ledger.md       attacks, responses, termination assessment
 examples/
+  genre-study-robotics.md  a filled-in genre study, 22 award papers
   sample.tex             synthetic manuscript that passes the gate
   sample_bad.tex         synthetic manuscript that fails every check on purpose
 docs/
   workflow.md            the pipeline, stage by stage
   writing-checklist.md   the writing rules applied, with sources
-  award-paper-patterns.md what award-winning robotics papers share
 ```
 
 ## Install
@@ -118,12 +124,35 @@ validates the planning file: outline dependency graph, figure-to-claim
 mapping, stance ceilings, and a lexical pass for method-defending language in
 the frame.
 
+## Templates
+
+Every stage of the workflow produces an artifact, and `templates/` holds a
+blank form for each. Copy them into your paper folder and fill them in:
+
+| Template | What it captures | Produced at |
+|---|---|---|
+| `genre-study.md` | the conventions of your target venue, and which you will adopt | before writing |
+| `frame.md` | gap statement in three moves, delimitations, figure inventory | planning |
+| `outline.md` | per-section inputs, the belief each section leaves, stance levels | planning |
+| `precedence-log.md` | every guidance conflict and every gate run | during drafting |
+| `review-ledger.md` | each attack, the typed response, the termination test | during review |
+
+`examples/genre-study-robotics.md` is a worked genre study over 22 award papers
+from ICRA, IROS, and RSS. Read it for the level of detail a study needs, then
+build your own; the conclusions in it are specific to robotics systems papers
+and should not be borrowed wholesale.
+
+The paper-config that the validators read has its own example at
+`skills/paper-pipeline/schemas/paper-config.example.yaml` and its schema at
+`paper-config.schema.md` beside it.
+
 ## Workflow
 
 Read [docs/workflow.md](docs/workflow.md) for the full sequence. In short:
 
 1. Read the genre: fetch the writing guide you follow in full, digest ten to
-   twenty award papers from the target venue, and note their patterns.
+   twenty award papers from the target venue, and record what they share in a
+   copy of `templates/genre-study.md`.
 2. Plan: build the frame and the per-section contracts with
    `section-contracts`; validate the config.
 3. Draft one section at a time with `draft-guard`; apply every change as an
@@ -144,8 +173,8 @@ Read [docs/workflow.md](docs/workflow.md) for the full sequence. In short:
 - The writing rules in `docs/writing-checklist.md` are a paraphrase of
   Michael J. Black, "Writing a good scientific paper" (2024), with a link; the
   post itself is not reproduced.
-- `docs/award-paper-patterns.md` lists public papers by title and arXiv id
-  and summarises structure only.
+- `examples/genre-study-robotics.md` lists public papers by title and arXiv id
+  and summarises structure only. Quoted fragments are short and attributed.
 
 ## License
 
