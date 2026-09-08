@@ -1,0 +1,4 @@
+# Both optional. The validators are standard-library only; PyYAML is used when
+# present. pypdf is needed only by tools/paper_digest.py.
+pypdf>=4.0
+PyYAML>=6.0

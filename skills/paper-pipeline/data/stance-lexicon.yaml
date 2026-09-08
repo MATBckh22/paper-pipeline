@@ -1,0 +1,50 @@
+# stance-lexicon v1.0
+# Four rhetorical strength levels. Consumed by section-contracts (ceiling
+# derivation + clamp) and draft-guard (realized-hedging scan).
+# Stays inside the paper-config YAML subset.
+
+version: "1.0"
+
+levels:
+  L1:
+    name: report
+    verbs: [was observed, were observed, the data show, we measured, we recorded, was found to be]
+    modals: []
+    evidence_predicate: "the measurement exists"
+  L2:
+    name: suggest
+    verbs: [suggest, suggests, may indicate, is consistent with, appears to, appear to, points to a possible]
+    modals: [may, might, could]
+    evidence_predicate: "own data, one interpretation among several"
+  L3:
+    name: argue
+    verbs: [we argue, the evidence indicates, points toward, point toward, supports the view, indicate that]
+    modals: [likely, probably]
+    evidence_predicate: "own data plus converging support, alternatives addressed"
+  L4:
+    name: assert
+    verbs: [we show, we demonstrate, demonstrates, establishes, we prove, proves, confirms, we confirm]
+    modals: []
+    evidence_predicate: "direct, controlled, alternatives excluded"
+
+# Evidence-note cues -> stance ceiling. Weakness cues (L1/L2) dominate
+# strength cues (L3/L4): any matched weakness sets the ceiling regardless of
+# strengths also present. No match at all -> ambiguous -> agent adjudicates.
+ceiling_cues:
+  L1: [anecdotal, single observation, not systematically measured, uncalibrated, informal]
+  L2: [single apparatus, no independent replication, without replication, pilot, small sample, one operator, single operator, single session, exploratory, unresolved confound, self-reported]
+  L3: [converging, replicated, multiple conditions, alternatives addressed, triangulated, cross-validated]
+  L4: [controlled comparison, ablation, alternatives excluded, independent replication, preregistered, statistically significant across]
+
+# Guard: a strength cue does not count when negated within the same clause.
+negation_markers: [no, not, without, lacking, lacks, absent, "un-"]
+
+# Per-discipline overlays. A discipline may replace any level's verb/modal
+# lists or extend ceiling_cues; unspecified keys inherit the base lexicon.
+# Hedging norms differ sharply between fields (brief 3.4) - add overlays
+# rather than editing the base.
+disciplines:
+  engineering:
+    levels:
+      L4:
+        verbs: [we show, we demonstrate, demonstrates, establishes, validates, verifies, we verify]

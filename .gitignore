@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.DS_Store
+*.bak
+digests/
+*.aux
+*.log
+*.out
+*.synctex.gz

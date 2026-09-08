@@ -1,0 +1,21 @@
+# Fixture: dependency cycle 3 -> 5 -> 4 -> 3. The validator must report the
+# full cycle path, not just one edge.
+paper:
+  title: "fixture"
+  type: test
+  venue: "none"
+  length_limit: "n/a"
+outline:
+  sections:
+    - id: "3"
+      heading: "three"
+      inputs: ["5"]
+      output: "a"
+    - id: "4"
+      heading: "four"
+      inputs: ["3"]
+      output: "b"
+    - id: "5"
+      heading: "five"
+      inputs: ["4"]
+      output: "c"

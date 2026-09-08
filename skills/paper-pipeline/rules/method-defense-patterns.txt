@@ -1,0 +1,18 @@
+# Method-defending language patterns for the frame linter (lexical stage).
+# One case-insensitive regex per line; '#' starts a comment.
+# A hit is a CANDIDATE - the judge stage adjudicates each one. Extend this
+# list whenever the judge confirms a phrasing the list missed.
+\bwe\s+(chose|choose|selected|select|opted|decided)\b
+\bthis\s+(approach|method|design|choice|configuration)\s+(allows|enables|ensures|provides|offers)\b
+\bin\s+order\s+to\s+(measure|capture|ensure|achieve|obtain)\b
+\bmotivat\w*\s+(our|the)\s+(use|choice|adoption|selection)\b
+\bwe\s+(use|adopt|employ|rely\s+on)\b.*\bbecause\b
+\bwas\s+(chosen|selected|adopted)\s+(for|because|due\s+to|owing\s+to)\b
+\bjustif(?:y|ies|ied|ication)\b
+\bthe\s+rationale\s+(for|behind)\b
+\b(allows|enables)\s+us\s+to\b
+\bso\s+that\s+we\s+(can|could)\b
+\bis\s+well[- ]suited\s+(for|to)\s+(our|the\s+present)\b
+\bfor\s+this\s+reason,?\s+we\b
+\bour\s+(choice|selection|adoption)\s+of\b
+\bmakes?\s+it\s+possible\s+(for\s+us\s+)?to\b

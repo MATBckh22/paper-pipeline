@@ -1,0 +1,40 @@
+%----------------------------------------------------------------------------
+% Synthetic manuscript that FAILS the gate on purpose. Run:
+%   tools/run_gate.sh examples/sample_bad.tex L1
+% Expected: an unresolved citation, an L3/L4 phrase in an L1-declared draft,
+% several prose hard-limit failures, an unresolved \ref, and a missing figure.
+%----------------------------------------------------------------------------
+\documentclass[conference]{IEEEtran}
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\title{A Novel and Robust Framework}
+\begin{document}
+\maketitle
+
+\section{INTRODUCTION}
+It is worth noting that this work delves into a comprehensive, multifaceted
+landscape --- a truly transformative paradigm!  We show that our approach
+establishes a new cornerstone; it is essential to note that the results
+demonstrate this; moreover, the method allows us to leverage synergy; and
+furthermore it enables a seamless workflow.
+
+\cite{ghost2020missing} argued the opposite. In Fig.~\ref{fig:nonexistent} we
+show the pipeline. The contribution isn't a solution, but a direction; it's not
+an improvement, but a reframing; the result is not a speed claim, rather a
+reliability one.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\columnwidth]{missing-figure.png}
+  \caption{Results of experiment 2.}
+  \label{fig:pipeline}
+\end{figure}
+
+We presented a system that proves the claim.
+
+\begin{thebibliography}{9}
+\bibitem{real2021entry}
+A.~Author, ``An entry that is never cited,'' \emph{Journal}, 2021.
+\end{thebibliography}
+
+\end{document}

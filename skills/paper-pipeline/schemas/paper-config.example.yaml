@@ -1,0 +1,71 @@
+# paper-config example: a synthetic desktop part-sorting systems paper.
+# Stays within the documented YAML subset (see paper-config.schema.md).
+
+paper:
+  title: "PebbleSort: Weight-Based Singulation of Small Parts on a Desktop Robot"
+  type: conference-systems
+  venue: "Example Robotics Conference 2027"
+  venue_style_guide: "IEEE conference template; 8 pages max incl. references; double-anonymous"
+  length_limit: "8 pages"
+
+inputs:
+  bibliography: paper/main.tex
+  style_spec: .claude/skills/paper-pipeline/data/style-spec.md
+  phrase_bank: .claude/skills/paper-pipeline/data/phrase-bank.yaml
+  figure_source: paper/figures
+
+frame:
+  gap_statement: "Industrial vibratory sorters and learned tactile classifiers reach high accuracy on factory or laboratory hardware (established, cited). No work quantifies how much accuracy survives on desktop components, nor reports cycle-time consistency (not established, cited). Repair shops that carry the sorting burden cannot afford the studied platforms (why it matters)."
+  delimitations:
+    - claim: "Two part families only, screws and washers"
+      justification: "The two most common fastener classes in repair bins; thin washers are the harder, representative case"
+    - claim: "Operator-gated execution"
+      justification: "Scientific control: independent ground-truth labeling before aggregation"
+  figures:
+    - id: fig1
+      supports_claim: "a complete desktop sorter built from consumer components exists"
+      status: ready
+    - id: fig-timing
+      supports_claim: "cycle-time consistency separates the two part families"
+      status: ready
+
+outline:
+  default_stance: L2
+  sections:
+    - id: "1"
+      heading: "Introduction"
+      inputs: [gap_statement]
+      output: "reader accepts the cost-vs-accuracy question as open and worth answering"
+      stance: L3
+      evidence_note: "gap grounded in cited literature and market survey"
+    - id: "2"
+      heading: "Related Work"
+      inputs: [gap_statement]
+      output: "reader agrees no prior work occupies the desktop design point"
+      stance: L3
+      evidence_note: "cited comparison, converging support"
+    - id: "3"
+      heading: "System Design"
+      inputs: ["1"]
+      output: "reader believes the load-cell chain resolves 0.1 g"
+      stance: L1
+      evidence_note: "measured calibration logs"
+      figures: [fig1]
+    - id: "5"
+      heading: "Results"
+      inputs: ["3"]
+      output: "reader believes the 91% accuracy and the family effect are real"
+      stance: L4
+      evidence_note: "120 trials, exact binomial CIs, alternatives addressed"
+      figures: [fig-timing]
+
+drafting:
+  precedence: [venue_guide, style_spec_traceable, phrase_bank, anti_ai_heuristics]
+  one_section_at_a_time: true
+
+review:
+  fresh_context: true
+  rank_by: severity_x_likelihood
+  responses_allowed: [accept, defend, retreat]
+  stop_when: "no new high-severity attack accepted or retreated in a full round"
+  max_rounds: 4

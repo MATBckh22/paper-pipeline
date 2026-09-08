@@ -1,0 +1,39 @@
+# phrase-bank v1.0
+# Local, machine-readable catalogue of academic phrasings indexed by
+# rhetorical move x stance level (the indexing IS the value - brief 3.5).
+# Formulations are original, written in the register of the Manchester
+# Academic Phrasebank; nothing is scraped. Slots in [brackets] are filled by
+# the drafting agent. Levels reference data/stance-lexicon.yaml.
+# Precedence: tier 3 - a phrase here beats a tier-4 anti-AI heuristic when
+# the required move needs it (see draft-guard).
+
+version: "1.0"
+
+moves:
+  signal_gap:
+    L2: ["Little attention has been paid to [X]", "It remains unclear whether [X]", "[X] has yet to be examined under [conditions]"]
+    L3: ["No prior work quantifies [X]", "The literature leaves open the question of [X]", "What is missing is evidence of [X]"]
+  state_aim:
+    L1: ["This paper reports [X]", "We describe [system/method] for [task]"]
+    L3: ["We ask how far [X] can [Y] when [constraint]", "This work addresses the gap by [approach]"]
+    L4: ["We show that [X] is achievable with [Y]"]
+  describe_method:
+    L1: ["[Step] was performed using [instrument/parameter]", "Each trial recorded [measures]", "The procedure comprises [phases]"]
+    L2: ["[Parameter] was set to [value], derived from [procedure]"]
+  report_results:
+    L1: ["[Metric] was [value] ([dispersion]) across [n] trials", "We observed [outcome] in [k] of [n] cases"]
+    L2: ["The difference is consistent with [mechanism]", "This pattern may reflect [cause]"]
+    L3: ["Taken together, the [measures] indicate [conclusion]", "The evidence points toward [interpretation]"]
+    L4: ["The results demonstrate [claim] ([test], p = [value])"]
+  compare_prior:
+    L1: ["[System] reports [value] on [protocol]; ours records [value] on [protocol]"]
+    L2: ["Protocol differences caution against a direct ranking; the figures are consistent with [positioning]"]
+    L3: ["Against the [range] reported by [systems], our [value] indicates [claim]"]
+  acknowledge_limitation:
+    L1: ["The evaluation covers [envelope]; behaviour outside it was not measured", "[Confound] was not controlled"]
+    L2: ["The [estimate] is therefore sensitive to [factor] and may not transfer to [conditions]"]
+    L3: ["These results characterize [configuration] rather than [general class]; we argue the distinction matters because [reason]"]
+  draw_implication:
+    L2: ["A practical implication may be [consequence] for [audience]", "This suggests [design choice] deserves consideration when [context]"]
+    L3: ["For practitioners, the implication is [consequence]", "The finding argues for [action] in [setting]"]
+    L4: ["[Result] establishes [capability], enabling [application]"]

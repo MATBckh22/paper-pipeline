@@ -1,0 +1,29 @@
+# Fixture: transitive forward reference (brief section 4 adversarial case 2).
+# Section 1 depends on later section 5 (the single illegal edge).
+# Section 2 depends on section 1 (legal edge) - so section 2 is transitively
+# poisoned. A pairwise-only checker reports edge 1->5 but not that section 2
+# must be re-planned; the validator must list 2 as transitively affected.
+paper:
+  title: "fixture"
+  type: test
+  venue: "none"
+  length_limit: "n/a"
+outline:
+  sections:
+    - id: "1"
+      heading: "one"
+      inputs: ["5"]
+      output: "a"
+    - id: "2"
+      heading: "two"
+      inputs: ["1"]
+      output: "b"
+    - id: "3"
+      heading: "three"
+      output: "c"
+    - id: "4"
+      heading: "four"
+      output: "d"
+    - id: "5"
+      heading: "five"
+      output: "e"
