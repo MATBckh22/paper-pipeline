@@ -2,9 +2,7 @@
 
 A small, reproducible toolchain for writing and gating a systems paper: read
 the genre, plan the argument, draft one section at a time, and run mechanical
-checks after every edit. It grew out of preparing a robotics conference
-submission and contains no paper content; everything here is either a tool, a
-rule file, or a synthetic example.
+checks after every edit.
 
 Two halves:
 
