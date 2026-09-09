@@ -62,7 +62,7 @@ def preprocess(src):
     text = re.sub(r"\\begin\{(tabular\*?|tabularx|algorithmic|verbatim|lstlisting|equation\*?|align\*?)\}.*?\\end\{\1\}",
                   " ", text, flags=re.S)
     text = re.sub(r"\$\$.*?\$\$|\\\[.*?\\\]", " MATH ", text, flags=re.S)
-    text = re.sub(r"\$[^$]*\$", " MATH ", text)
+    text = re.sub(r"(?<!\\)\$(?:[^$\\]|\\.)*?(?<!\\)\$", " MATH ", text)  # skip escaped \$
     text = re.sub(r"\\(?:includegraphics|label|ref|eqref|pageref|url|graphicspath|input|include)\*?(?:\[[^\]]*\])?\{[^}]*\}", " ", text)
     text = re.sub(r"\\(?:emph|textbf|textit|texttt|underline|caption|captionof\{[a-z]+\}|section\*?|subsection\*?|subsubsection\*?|title|footnote|thanks)\*?\{", "{", text)
     text = re.sub(r"\\(?:begin|end)\{[^}]*\}(?:\[[^\]]*\])?", " ", text)
